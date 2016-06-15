@@ -159,10 +159,10 @@ TitleWizard::TitleWizard(QWidget* parent)
 NewWizardPage1::NewWizardPage1(QWidget* parent)
    : QWizardPage(parent)
       {
-      setTitle(tr("Create New Score"));
-      setSubTitle(tr("This wizard creates a new score"));
+      setTitle(tr("New Score Wizard"));
+      setSubTitle(tr("Enter score information:"));
       //crash setAccessibleName(title());
-      setAccessibleName(tr("Create New Score"));
+      setAccessibleName(tr("New Score Wizard"));
       setAccessibleDescription(subTitle());
 
       w = new TitleWizard;
@@ -189,9 +189,9 @@ void NewWizardPage1::initializePage()
 NewWizardPage2::NewWizardPage2(QWidget* parent)
    : QWizardPage(parent)
       {
-      setTitle(tr("Create New Score"));
-      setSubTitle(tr("Define a set of instruments. Each instrument"
-                     " is represented by one or more staves"));
+      setTitle(tr("New Score Wizard"));
+      setSubTitle(tr("Choose instruments on the left to add to instrument list on the"
+		      " right (each instrument is represented by one or more staves):"));
       setAccessibleName(title());
       setAccessibleDescription(subTitle());
       complete = false;
@@ -239,8 +239,8 @@ void NewWizardPage2::createInstruments(Score* s)
 NewWizardPage3::NewWizardPage3(QWidget* parent)
    : QWizardPage(parent)
       {
-      setTitle(tr("Create New Score"));
-      setSubTitle(tr("Create Time Signature"));
+      setTitle(tr("New Score Wizard"));
+      setSubTitle(tr("Choose time signature and tempo:"));
       setAccessibleName(title());
       setAccessibleDescription(subTitle());
 
@@ -248,6 +248,30 @@ NewWizardPage3::NewWizardPage3(QWidget* parent)
       QGridLayout* grid = new QGridLayout;
       grid->addWidget(w, 0, 0);
       setLayout(grid);
+          
+          tempoGroup = new QGroupBox;
+          tempoGroup->setCheckable(true);
+          tempoGroup->setChecked(false);
+          tempoGroup->setTitle(tr("Tempo"));
+          QLabel* bpm = new QLabel;
+          bpm->setText(tr("BPM:"));
+          _tempo = new QDoubleSpinBox;
+          _tempo->setAccessibleName(tr("Beats per minute"));
+          _tempo->setRange(20.0, 400.0);
+          _tempo->setValue(100.0);
+          _tempo->setDecimals(1);
+          QHBoxLayout* l2 = new QHBoxLayout;
+          l2->addWidget(bpm);
+          l2->addWidget(_tempo);
+          l2->addStretch(100);
+          tempoGroup->setLayout(l2);
+          
+          QVBoxLayout* l3 = new QVBoxLayout;
+          l3->addWidget(b1);
+          l3->addWidget(tempoGroup);
+          l3->addStretch(100);
+          setLayout(l3);
+          
       }
 
 //---------------------------------------------------------
@@ -257,8 +281,8 @@ NewWizardPage3::NewWizardPage3(QWidget* parent)
 NewWizardPage4::NewWizardPage4(QWidget* parent)
    : QWizardPage(parent)
       {
-      setTitle(tr("Create New Score"));
-      setSubTitle(tr("Select Template File:"));
+      setTitle(tr("New Score Wizard"));
+      setSubTitle(tr("Choose template file:"));
       setAccessibleName(title());
       setAccessibleDescription(subTitle());
 
@@ -341,8 +365,8 @@ QString NewWizardPage4::templatePath() const
 NewWizardPage5::NewWizardPage5(QWidget* parent)
    : QWizardPage(parent)
       {
-      setTitle(tr("Create New Score"));
-      setSubTitle(tr("Select Key Signature and Tempo:"));
+      setTitle(tr("New Score Wizard"));
+      setSubTitle(tr("Choose key signature:"));
       setAccessibleName(title());
       setAccessibleDescription(subTitle());
 
@@ -357,29 +381,6 @@ NewWizardPage5::NewWizardPage5(QWidget* parent)
       QVBoxLayout* l1 = new QVBoxLayout;
       l1->addWidget(sa);
       b1->setLayout(l1);
-
-      tempoGroup = new QGroupBox;
-      tempoGroup->setCheckable(true);
-      tempoGroup->setChecked(false);
-      tempoGroup->setTitle(tr("Tempo"));
-      QLabel* bpm = new QLabel;
-      bpm->setText(tr("BPM:"));
-      _tempo = new QDoubleSpinBox;
-      _tempo->setAccessibleName(tr("Beats per minute"));
-      _tempo->setRange(20.0, 400.0);
-      _tempo->setValue(100.0);
-      _tempo->setDecimals(1);
-      QHBoxLayout* l2 = new QHBoxLayout;
-      l2->addWidget(bpm);
-      l2->addWidget(_tempo);
-      l2->addStretch(100);
-      tempoGroup->setLayout(l2);
-
-      QVBoxLayout* l3 = new QVBoxLayout;
-      l3->addWidget(b1);
-      l3->addWidget(tempoGroup);
-      l3->addStretch(100);
-      setLayout(l3);
       }
 
 //---------------------------------------------------------
@@ -404,7 +405,7 @@ NewWizard::NewWizard(QWidget* parent)
       setWizardStyle(QWizard::ClassicStyle);
       setPixmap(QWizard::LogoPixmap, QPixmap(":/data/mscore.png"));
       setPixmap(QWizard::WatermarkPixmap, QPixmap());
-      setWindowTitle(tr("MuseScore: Create New Score"));
+      setWindowTitle(tr("New Score Wizard"));
 
       setOption(QWizard::NoCancelButton, false);
       setOption(QWizard::CancelButtonOnLeft, true);
