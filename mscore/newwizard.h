@@ -125,7 +125,6 @@ class NewWizardPage3 : public QWizardPage {
       TimeSigType timesigType() const          { return w->type();       }
       double tempo() const            { return _tempo->value(); }
       bool createTempo() const        { return tempoGroup->isChecked(); }
-      void init();
       };
 
 //---------------------------------------------------------
