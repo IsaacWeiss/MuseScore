@@ -247,7 +247,6 @@ NewWizardPage3::NewWizardPage3(QWidget* parent)
       w = new TimesigWizard;
       QGridLayout* grid = new QGridLayout;
       grid->addWidget(w, 0, 0);
-      setLayout(grid);
 
       tempoGroup = new QGroupBox;
       tempoGroup->setCheckable(true);
@@ -266,10 +265,8 @@ NewWizardPage3::NewWizardPage3(QWidget* parent)
       l2->addStretch(100);
       tempoGroup->setLayout(l2);
 
-      QVBoxLayout* l3 = new QVBoxLayout;
-      l3->addWidget(tempoGroup);
-      l3->addStretch(100);
-      setLayout(l3);
+      grid->addWidget(tempoGroup, 1, 0);
+      setLayout(grid);
       }
 
 //---------------------------------------------------------
