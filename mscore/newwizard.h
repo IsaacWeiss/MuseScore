@@ -114,8 +114,6 @@ class NewWizardPage3 : public QWizardPage {
       Q_OBJECT
 
       TimesigWizard* w;
-
-      Palette* sp;
       QDoubleSpinBox* _tempo;
       QGroupBox* tempoGroup;
 
@@ -158,6 +156,8 @@ class NewWizardPage4 : public QWizardPage {
 
 class NewWizardPage5 : public QWizardPage {
       Q_OBJECT
+
+      Palette* sp;
 
    public:
       NewWizardPage5(QWidget* parent = 0);
