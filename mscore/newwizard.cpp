@@ -267,7 +267,6 @@ NewWizardPage3::NewWizardPage3(QWidget* parent)
           tempoGroup->setLayout(l2);
           
           QVBoxLayout* l3 = new QVBoxLayout;
-          l3->addWidget(b1);
           l3->addWidget(tempoGroup);
           l3->addStretch(100);
           setLayout(l3);
@@ -381,6 +380,11 @@ NewWizardPage5::NewWizardPage5(QWidget* parent)
       QVBoxLayout* l1 = new QVBoxLayout;
       l1->addWidget(sa);
       b1->setLayout(l1);
+
+      QVBoxLayout* l2 = new QVBoxLayout;
+      l2->addWidget(b1);
+      l2->addStretch(100);
+      setLayout(l2);
       }
 
 //---------------------------------------------------------
