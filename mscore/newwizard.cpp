@@ -191,7 +191,7 @@ NewWizardPage2::NewWizardPage2(QWidget* parent)
       {
       setTitle(tr("New Score Wizard"));
       setSubTitle(tr("Choose instruments on the left to add to instrument list on the"
-		      " right (each instrument is represented by one or more staves):"));
+                     " right (each instrument is represented by one or more staves):"));
       setAccessibleName(title());
       setAccessibleDescription(subTitle());
       complete = false;
@@ -248,29 +248,28 @@ NewWizardPage3::NewWizardPage3(QWidget* parent)
       QGridLayout* grid = new QGridLayout;
       grid->addWidget(w, 0, 0);
       setLayout(grid);
-          
-          tempoGroup = new QGroupBox;
-          tempoGroup->setCheckable(true);
-          tempoGroup->setChecked(false);
-          tempoGroup->setTitle(tr("Tempo"));
-          QLabel* bpm = new QLabel;
-          bpm->setText(tr("BPM:"));
-          _tempo = new QDoubleSpinBox;
-          _tempo->setAccessibleName(tr("Beats per minute"));
-          _tempo->setRange(20.0, 400.0);
-          _tempo->setValue(100.0);
-          _tempo->setDecimals(1);
-          QHBoxLayout* l2 = new QHBoxLayout;
-          l2->addWidget(bpm);
-          l2->addWidget(_tempo);
-          l2->addStretch(100);
-          tempoGroup->setLayout(l2);
-          
-          QVBoxLayout* l3 = new QVBoxLayout;
-          l3->addWidget(tempoGroup);
-          l3->addStretch(100);
-          setLayout(l3);
-          
+
+      tempoGroup = new QGroupBox;
+      tempoGroup->setCheckable(true);
+      tempoGroup->setChecked(false);
+      tempoGroup->setTitle(tr("Tempo"));
+      QLabel* bpm = new QLabel;
+      bpm->setText(tr("BPM:"));
+      _tempo = new QDoubleSpinBox;
+      _tempo->setAccessibleName(tr("Beats per minute"));
+      _tempo->setRange(20.0, 400.0);
+      _tempo->setValue(100.0);
+      _tempo->setDecimals(1);
+      QHBoxLayout* l2 = new QHBoxLayout;
+      l2->addWidget(bpm);
+      l2->addWidget(_tempo);
+      l2->addStretch(100);
+      tempoGroup->setLayout(l2);
+
+      QVBoxLayout* l3 = new QVBoxLayout;
+      l3->addWidget(tempoGroup);
+      l3->addStretch(100);
+      setLayout(l3);
       }
 
 //---------------------------------------------------------

@@ -114,20 +114,20 @@ class NewWizardPage3 : public QWizardPage {
       Q_OBJECT
 
       TimesigWizard* w;
-    
-    Palette* sp;
-    QDoubleSpinBox* _tempo;
-    QGroupBox* tempoGroup;
-    
+
+      Palette* sp;
+      QDoubleSpinBox* _tempo;
+      QGroupBox* tempoGroup;
+
    public:
       NewWizardPage3(QWidget* parent = 0);
       int measures() const                     { return w->measures();   }
       Fraction timesig() const                 { return w->timesig();    }
       bool pickupMeasure(int* z, int* n) const { return w->pickup(z, n); }
       TimeSigType timesigType() const          { return w->type();       }
-    double tempo() const            { return _tempo->value(); }
-    bool createTempo() const        { return tempoGroup->isChecked(); }
-    void init();
+      double tempo() const            { return _tempo->value(); }
+      bool createTempo() const        { return tempoGroup->isChecked(); }
+      void init();
       };
 
 //---------------------------------------------------------
@@ -184,9 +184,9 @@ class NewWizard : public QWizard {
       virtual int nextId() const;
 
       enum class Page : signed char      { Invalid = -1, Type, Instruments, Template, Keysig, Timesig};
-  
-    double tempo() const                { return p3->tempo();       }
-    bool createTempo() const            { return p3->createTempo(); }
+
+      double tempo() const                { return p3->tempo();       }
+      bool createTempo() const            { return p3->createTempo(); }
 
       QString templatePath() const       { return p4->templatePath(); }
       int measures() const               { return p3->measures();    }
