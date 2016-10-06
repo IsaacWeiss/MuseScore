@@ -1796,20 +1796,41 @@ Shortcut Shortcut::_sc[] = {
          Icons::Invalid_ICON,
          Qt::ApplicationShortcut
          },
-//      {
-//         MsWidget::MAIN_WINDOW,
-//         STATE_NORMAL | STATE_NOTE_ENTRY | STATE_EDIT ,
-//         "toggle-transport",
-//         QT_TRANSLATE_NOOP("action","Transport"),
-//         QT_TRANSLATE_NOOP("action","Transport toolbar")
-//         },
-//      {
-//         MsWidget::MAIN_WINDOW,
-//         STATE_NORMAL | STATE_NOTE_ENTRY | STATE_EDIT ,
-//         "toggle-noteinput",
-//         QT_TRANSLATE_NOOP("action","Note Input"),
-//         QT_TRANSLATE_NOOP("action","Note input toolbar")
-//         },
+      {
+         MsWidget::MAIN_WINDOW,
+         STATE_NORMAL | STATE_NOTE_ENTRY | STATE_EDIT ,
+         "toggle-fileoperations",
+         QT_TRANSLATE_NOOP("action","File Operations"),
+         QT_TRANSLATE_NOOP("action","File Operations toolbar")
+         },
+      {
+         MsWidget::MAIN_WINDOW,
+         STATE_NORMAL | STATE_NOTE_ENTRY | STATE_EDIT ,
+         "toggle-transport",
+         QT_TRANSLATE_NOOP("action","Transport"),
+         QT_TRANSLATE_NOOP("action","Transport toolbar")
+         },
+      {
+         MsWidget::MAIN_WINDOW,
+         STATE_NORMAL | STATE_NOTE_ENTRY | STATE_EDIT ,
+         "toggle-concertpitch",
+         QT_TRANSLATE_NOOP("action","Concert Pitch"),
+         QT_TRANSLATE_NOOP("action","Concert Pitch toolbar")
+         },
+      {
+         MsWidget::MAIN_WINDOW,
+         STATE_NORMAL | STATE_NOTE_ENTRY | STATE_EDIT ,
+         "toggle-imagecapture",
+         QT_TRANSLATE_NOOP("action","Image Capture"),
+         QT_TRANSLATE_NOOP("action","Image Capture toolbar")
+         },
+      {
+         MsWidget::MAIN_WINDOW,
+         STATE_NORMAL | STATE_NOTE_ENTRY | STATE_EDIT ,
+         "toggle-noteinput",
+         QT_TRANSLATE_NOOP("action","Note Input"),
+         QT_TRANSLATE_NOOP("action","Note Input toolbar")
+         },
       {
          MsWidget::MAIN_WINDOW,
          STATE_NORMAL | STATE_NOTE_ENTRY | STATE_EDIT ,
