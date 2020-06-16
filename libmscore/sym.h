@@ -2816,12 +2816,12 @@ public:
     void draw(SymId id,                  QPainter*, qreal mag,         const QPointF& pos, int n) const;
     void draw(const std::vector<SymId>&, QPainter*, qreal mag,         const QPointF& pos) const;
     void draw(const std::vector<SymId>&, QPainter*, const QSizeF& mag, const QPointF& pos) const;
-    void draw(const std::vector<SymId>&, QPainter*, qreal mag,         const QPointF& pos, qreal scale) const;
+    void draw(const std::vector<SymId>&, QPainter*, qreal mag,         const QPointF& pos, qreal scale, qreal space = 0) const;
     void draw(const std::vector<SymId>&, QPainter*, const QSizeF& mag, const QPointF& pos, qreal scale) const;
 
     qreal height(SymId id, qreal mag) const { return bbox(id, mag).height(); }
     qreal width(SymId id, qreal mag) const { return bbox(id, mag).width(); }
-    qreal advance(SymId id, qreal mag) const;
+    qreal advance(SymId id, qreal mag, qreal space = 0) const;
     qreal width(const std::vector<SymId>&, qreal mag) const;
 
     const QRectF bbox(SymId id, const QSizeF&) const;
